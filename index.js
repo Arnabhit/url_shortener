@@ -20,25 +20,7 @@ connectDb("mongodb://127.0.0.1:27017/short-url")
 app.use("/", urlRouter);
 
 // Route to handle redirection
-app.get("/:shortid", async (req, res) => {
-    try {
-        const shortid = req.params.shortid;
-        const entry = await URL.findOneAndUpdate(
-            { shortId: shortid },
-            { $push: { visitHistory: { timestamp: Date.now() } } },
-            { new: true } // Return the updated document
-        );
 
-        if (!entry) {
-            return res.status(404).json({ error: "Short URL not found" });
-        }
-
-        res.redirect(entry.redirectUrl);
-    } catch (err) {
-        console.error("Error during redirection:", err);
-        res.status(500).json({ error: "Internal Server Error" });
-    }
-});
 
 // Start the server
 const PORT = process.env.PORT || 8001;
