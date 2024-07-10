@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>URL Shortener App</title>
+    <% if(locals.id){ %>
+    <p>Url generated is :http://localhost:5173/<%=id %></p>
+   <% } %> 
+</head>
+<body>
+    <div class="">
+
+   
+    <h1 class="text-3xl p-4 font-bold underline text-cyan-900">URL SHORTENER APP</h1>
+    <form method="POST" action="/"class="text-xl p-4 flex flex-col gap-4 "action="">
+        <label for="
+        ">Enter your url to be shortened
+    </label>
+    <input class="border-slate-300" type="text" placeholder="http://your-url" name="url">
+    <button class="bg-red-500 rounded-xl p-1 w-24">Generate</button>
+    </form>
+</div>
+</body>
+</html>
